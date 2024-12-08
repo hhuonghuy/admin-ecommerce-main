@@ -4,7 +4,7 @@ const ProductItem = ({ data }) => {
   return (
     <div className="productItem__wrapper">
       <div className="productItem__des">
-        <h1 className="productItem__des-name">{data.name}</h1>
+        <h1 className="productItem__des-name">Tên sản phẩm: {data.name}</h1>
         <h1 className="productItem__des-quantity">
           Số lượng: x{data.quantity}
         </h1>

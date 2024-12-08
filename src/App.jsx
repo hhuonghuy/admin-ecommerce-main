@@ -1,35 +1,47 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Sidebar from "./components/sidebar/Sidebar";
+import Category from "./pages/categorys/Category";
+import CreateCategory from "./pages/categorys/create-category/CreateCategory";
+import UpdateCategory from "./pages/categorys/update-category/updateCategory";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login";
+import Order from "./pages/order/order";
+import OrderDetail from "./pages/orderDetail/OrderDetail";
+import Products from "./pages/products/Products";
+import CreateProduct from "./pages/products/create-product/CreateProduct";
+import UpdateProduct from "./pages/products/update-product/UpdateProduct";
+import Register from "./pages/register/Register";
+import Statistical from "./pages/statistical/statistical";
+import User from "./pages/users/User";
+import CreateUser from "./pages/users/create-user/createUser";
+import UpdateUser from "./pages/users/update-user/updateUser";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <main className="flex items-start w-full max-w-[1440px] gap-10">
+      <Sidebar />
+      <div className="wrapper__content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/category" element={<Category />} />
+          <Route path="/user" element={<User />} />
+          <Route path="/create-category" element={<CreateCategory />} />
+          <Route path="/update-category/:id" element={<UpdateCategory />} />
+          <Route path="/product" element={<Products />} />
+          <Route path="/product/create" element={<CreateProduct />} />
+          <Route path="/user/create" element={<CreateUser />} />
+          <Route path="/user/update/:id" element={<UpdateUser />} />
+          <Route path="/product/update/:id" element={<UpdateProduct />} />
+          <Route path="/statistical" element={<Statistical />} />
+          <Route path="/order" element={<Order />} />
+          <Route path="/order/:id" element={<OrderDetail />} />
+        </Routes>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </main>
+  );
 }
 
-export default App
+export default App;
